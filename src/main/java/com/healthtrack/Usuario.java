@@ -2,7 +2,7 @@ package com.healthtrack;
 
 public class Usuario {
 
-  private String nombre;
+  final private String nombre;
   private double peso;
 
   public Usuario(String nombre, double peso) {
@@ -21,10 +21,6 @@ public class Usuario {
   public void actualizarPeso(double nuevoPeso) {
     // LÓGICA CORREGIDA: Asignar el nuevo peso ingresado.
     this.peso = nuevoPeso;
-  }
-
-  public void actualizarNombre(String nuevoNombre) {
-    this.nombre = nuevoNombre;
   }
 
   public void mostrarInformacion() {

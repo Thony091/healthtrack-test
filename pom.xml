@@ -11,11 +11,41 @@
   </properties>
 
     <dependencies>
-        <!-- Dependencia para Pruebas Unitarias (JUnit 5) -->
+        <!-- 1. API de JUnit 5 - Define las anotaciones como @Test (esta ya la tenías) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- 2. MOTOR de JUnit 5 - El componente que realmente ejecuta las pruebas (¡ESTA ES LA CLAVE!) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- 3. (Opcional pero recomendado) Para pruebas parametrizadas en JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- REST Assured para pruebas de API -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Hamcrest para matchers -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
             <scope>test</scope>
         </dependency>
         <!-- Dependencia para crear un servidor web simple -->
@@ -23,6 +53,18 @@
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
             <version>2.9.4</version>
+        </dependency>
+        <!-- Dependencia para silenciar el warning de logging de Spark -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.32</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <artifactId>junit</artifactId>
+            <groupId>junit</groupId>
+            <version>4.11</version>
         </dependency>
     </dependencies>
 
