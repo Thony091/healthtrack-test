@@ -1,0 +1,41 @@
+# Archivo: .github/workflows/ci-cd.yml
+name: HealthTrack CI Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test: # Nombre del job principal
+    runs-on: ubuntu-latest # El job usará una máquina Ubuntu en la nube
+
+    steps:
+      # 1. Clona el código del repositorio en el runner
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      # 2. Instala Java 17 usando la distribución Temurin
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # 3. Cachea el repositorio local de dependencias de Maven (~/.m2/repository)
+      #    Esto acelera el workflow reutilizando dependencias ya descargadas
+      - name: Cachear dependencias Maven
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven
+
+      # 4. Compila el proyecto y ejecuta los tests
+      #    working-directory indica que Maven debe ejecutarse dentro de la subcarpeta auth-console
+      - name: Construir y ejecutar pruebas
+        working-directory: auth-console
+        run: mvn clean test
