@@ -37,5 +37,4 @@ jobs:
       # 4. Compila el proyecto y ejecuta los tests
       #    working-directory indica que Maven debe ejecutarse dentro de la subcarpeta auth-console
       - name: Construir y ejecutar pruebas
-        working-directory: auth-console
         run: mvn clean test
