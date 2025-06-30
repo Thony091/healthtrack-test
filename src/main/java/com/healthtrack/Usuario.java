@@ -18,10 +18,10 @@ public class Usuario {
     return peso;
   }
 
-  public void actualizarPeso(double nuevoPeso) {
-    // LÓGICA CORREGIDA: Asignar el nuevo peso ingresado.
-    this.peso = nuevoPeso;
-  }
+  // public void actualizarPeso(double nuevoPeso) {
+  //   // LÓGICA CORREGIDA: Asignar el nuevo peso ingresado.
+  //   this.peso = nuevoPeso;
+  // }
 
   public void mostrarInformacion() {
     System.out.println("Usuario: " + nombre + ", Peso Actual: " + peso + " kg");

@@ -18,6 +18,12 @@
             <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
+        <!-- Dependencia para crear un servidor web simple -->
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>2.9.4</version>
+        </dependency>
     </dependencies>
 
     <build>
